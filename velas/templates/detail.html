@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/detail.css' %}">
+{% endblock %}
+
+    <title>Balm</title>
+</head>
+<body>
+    {% block content %}
+
+    <main>
+        
+        <img src="{{ produto.foto.url }}" alt="foto do produto">
+
+        <div>
+            <h3>{{ produto.categoria}} {{ produto.essencia }}</h3>
+            <h5>R${{ produto.valor}}</h5>
+            <p>Selecione o tamanho:</p>
+            <select name="tamanho" id="tamanho">
+                {% for tamanho in tamanhos_disponiveis %}
+                    <option value="{{ tamanho.id }}">{{ tamanho.nome_tamanho }}</option>
+                {% endfor %}
+                <br>
+            </select>
+            <div class="quantity-selector">
+                <button class="btn-decrement" onclick="updateQuantity(-1)">-</button>
+                <input type="number" id="quantity" value="1" min="1">
+                <button class="btn-increment" onclick="updateQuantity(1)">+</button>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        function updateQuantity(change) {
+            const quantityInput = document.getElementById('quantity');
+            let currentQuantity = parseInt(quantityInput.value);
+        
+            if (!isNaN(currentQuantity)) {
+                currentQuantity += change;
+                if (currentQuantity < 1) currentQuantity = 1; // Não permitir valores menores que 1
+                quantityInput.value = currentQuantity;
+            }
+            }
+    </script>
+        
+    {% endblock %}
+</body>
+</html>

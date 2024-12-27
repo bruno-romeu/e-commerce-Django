@@ -1,0 +1,14 @@
+@charset "UTF-8";
+
+*{
+    text-align: center;
+
+}
+
+.personalizar{
+    margin: 50px 0 50px 0;
+}
+
+h1, p{
+    margin: 0 20% 0 20%;
+}
