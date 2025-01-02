@@ -10,7 +10,7 @@ class CategoriaAdmin(admin.ModelAdmin):
     search_fields = ('categoria',)
 
 class TamanhoAdmin(admin.ModelAdmin):
-    list_display = ('nome_tamanho',)
+    list_display = ('nome_tamanho', 'peso', 'altura', 'diâmetro', 'circunferência')
     search_fields = ('nome_tamanho',)
 
 class EssenciaAdmin(admin.ModelAdmin):
@@ -18,11 +18,11 @@ class EssenciaAdmin(admin.ModelAdmin):
     search_fields = ('essencia',)
 
 class ProdutoAdmin(admin.ModelAdmin):
-    list_display = ('categoria', 'exibir_tamanhos', 'essencia', 'descricao', 'foto')
+    list_display = ('categoria', 'exibir_tamanhos',  'essencia', 'descricao', 'foto')
     search_fields = ('categoria', 'essencia')
 
     def exibir_tamanhos(self, obj):
-        return ", ".join([tamanho.nome_tamanho for tamanho in obj.tamanhos.all()])
+        return ", ".join([tamanho.peso and tamanho.nome_tamanho for tamanho in obj.tamanhos.all()])
     exibir_tamanhos.short_description = 'Tamanhos Disponíveis'
 
 class EstoqueAdmin(admin.ModelAdmin):

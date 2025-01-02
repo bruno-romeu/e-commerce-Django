@@ -3,7 +3,9 @@ from velas.models import Produto, Categoria, Tamanho
 from django.views.generic import ListView, TemplateView, DetailView
 from velas.forms import ClienteModelForm
 from brazilcep import get_address_from_cep, exceptions
+from .utils import calcular_frete_melhor_envio
 from django.http import JsonResponse
+
 
 class HomeListView(ListView):
     model = Produto
@@ -56,7 +58,6 @@ class ProdutoDetailView(DetailView):
         tamanhos = produto.tamanhos.all()
         print(f'produto: {produto}, tamanhos: {tamanhos}')
         context['tamanhos_disponiveis'] = tamanhos
-        return context
     
 
         cep_destino = self.request.GET.get("cep", "")
@@ -64,15 +65,13 @@ class ProdutoDetailView(DetailView):
 
         if cep_destino:
             try:
-                frete = calcular_frete(
+                frete = calcular_frete_melhor_envio(
                     cep_origem=cep_origem,
                     cep_destino=cep_destino,
-                    peso=produto.peso,
-                    formato=1,
-                    comprimento=produto.comprimento,
-                    altura=produto.altura,
-                    largura=produto.largura,
-                    servico=FRETE_SEDEX
+                    peso=Tamanho.peso,
+                    diâmetro=Tamanho.diâmetro,
+                    altura=Tamanho.altura,
+                    circunferência=Tamanho.circunferência,
                 )
                 context["frete"] = frete
             except Exception as e:

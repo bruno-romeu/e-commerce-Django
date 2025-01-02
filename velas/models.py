@@ -11,13 +11,13 @@ class Categoria(models.Model):
 class Tamanho(models.Model):
     id_tamanho = models.AutoField(primary_key=True)
     nome_tamanho = models.CharField(max_length=25, blank=True, null=True)
-    peso = models.FloatField(default=2.0)
+    peso = models.CharField(blank=True, null=True)
     altura = models.FloatField(default=5.0)
-    comprimento = models.FloatField(default=3.0)
-    largura = models.FloatField(default=3.0)
+    diâmetro = models.FloatField(default=3.0)
+    circunferência = models.FloatField(default=3.0)
 
     def __str__(self):
-        return self.nome_tamanho
+        return f'{self.nome_tamanho} - {self.peso}'
 
 
 class Essencia(models.Model):
