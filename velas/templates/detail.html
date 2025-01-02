@@ -41,6 +41,13 @@
                 <button class="btn-increment" onclick="updateQuantity(1)">+</button>
             </div>
         </div>
+
+        <form action="" method="POST">
+            {% csrf_token %}
+            <label for="cep">Calcular Frete:</label>
+            <input type="text" id="cep" name="cep" placeholder="Digite o seu CEP" required>
+            <button type="submit">Calcular</button>
+        </form>
     </main>
 
     <script>

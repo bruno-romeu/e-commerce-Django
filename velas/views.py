@@ -1,8 +1,8 @@
 from django.shortcuts import render, get_object_or_404
 from velas.models import Produto, Categoria, Tamanho
 from django.views.generic import ListView, TemplateView, DetailView
-
 from velas.forms import ClienteModelForm
+from brazilcep import get_address_from_cep, exceptions
 from django.http import JsonResponse
 
 class HomeListView(ListView):

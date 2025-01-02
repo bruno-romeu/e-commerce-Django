@@ -11,10 +11,10 @@ class Categoria(models.Model):
 class Tamanho(models.Model):
     id_tamanho = models.AutoField(primary_key=True)
     nome_tamanho = models.CharField(max_length=25, blank=True, null=True)
-    peso = models.CharField(default='padrao')
-    altura = models.CharField(default='padrao')
-    comprimento = models.CharField(default='padrao')
-    largura = models.CharField(default='padrao')
+    peso = models.FloatField(default=2.0)
+    altura = models.FloatField(default=5.0)
+    comprimento = models.FloatField(default=3.0)
+    largura = models.FloatField(default=3.0)
 
     def __str__(self):
         return self.nome_tamanho
