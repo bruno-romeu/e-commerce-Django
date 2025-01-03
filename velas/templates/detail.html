@@ -25,7 +25,7 @@
         
         <img class='foto-detail' src="{{ produto.foto.url }}" alt="foto do produto">
 
-        <div>
+        <div class="selecione">
             <h3>{{ produto.categoria}} {{ produto.essencia }}</h3>
             <h5>R${{ produto.valor}}</h5>
             <p>Selecione o tamanho:</p>
@@ -35,16 +35,21 @@
                 {% endfor %}
                 <br>
             </select>
-            <div class="quantity-selector">
-                <button class="btn-decrement" onclick="updateQuantity(-1)">-</button>
-                <input type="number" id="quantity" value="1" min="1">
-                <button class="btn-increment" onclick="updateQuantity(1)">+</button>
+            <br>
+            Quantidade:
+            <div id="buy">
+                <div class="quantity-selector">
+                    <button class="btn-decrement" onclick="updateQuantity(-1)">-</button>
+                    <input type="number" id="quantity" value="1" min="1">
+                    <button class="btn-increment" onclick="updateQuantity(1)">+</button>
+                </div>
+                <button type="submit" class="btn-add-cart">COMPRAR</button>
             </div>
-            <form action="" method="GET">
+            <label for="cep">Calcular Frete:</label><br>
+            <form class="buscacep" action="" method="GET">
                 {% csrf_token %}
-                <label for="cep">Calcular Frete:</label><br>
                 <input type="text" id="cep" name="cep" placeholder="Digite o seu CEP" required>
-                <button type="submit">Calcular</button>
+                <button class="btn-cep" type="submit">Calcular</button>
             </form>
             {% if frete %}
                 <h3>Opções de Frete:</h3>
@@ -59,7 +64,7 @@
                 <p class="error">{{frete_erro}}</p>
             {% endif %}
 
-            <button type="submit" class="btn-add-cart">Comprar</button>
+            
         </div>
 
         
