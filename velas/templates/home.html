@@ -27,13 +27,13 @@
         <section class="grid-prod">
             {% if velas %}
             <h1>Destaques</h1>
-                {% for vela in velas %}
+                {% for vela in velas|slice:":4" %}
                 <a href="{% url 'detail' vela.pk %}">
                   <div class="card-pai">
                     <div class="card">
                         <img class="card-img-top" src="{{ vela.foto.url }}" alt="Imagem de capa do card">
                         <h3>{{vela.categoria}}</h3>
-                        <h4>{{vela.essencia}}</h4>
+                        <h4>{{vela.tamanhos}}</h4>
                         <p>R$ {{vela.valor}}</p>
                         <button class="buy"><img src="{% static 'img/bag-items2.png' %}" alt="sacola de compras" class="bag"></button>
                       </div>

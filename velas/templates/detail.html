@@ -26,12 +26,12 @@
         <img class='foto-detail' src="{{ produto.foto.url }}" alt="foto do produto">
 
         <div class="selecione">
-            <h3>{{ produto.categoria}} {{ produto.essencia }}</h3>
+            <h3>{{ produto.categoria}} {{ produto.tamanhos }}</h3>
             <h5>R${{ produto.valor}}</h5>
-            <p>Selecione o tamanho:</p>
+            <p>Selecione a essência de sua vela:</p>
             <select name="tamanho" id="tamanho">
-                {% for tamanho in tamanhos_disponiveis %}
-                    <option value="{{ tamanho.id }}">{{ tamanho.nome_tamanho }} {{tamanho.peso}}</option>
+                {% for essencia in essencias_disponiveis %}
+                    <option value="{{ tamanho.id }}">{{ essencia.nome_essencia }}</option>
                 {% endfor %}
                 <br>
             </select>
@@ -46,7 +46,7 @@
                 <button type="submit" class="btn-add-cart">COMPRAR</button>
             </div>
             <label for="cep">Calcular Frete:</label><br>
-            <form class="buscacep" action="" method="GET">
+            <form class="buscacep" method="get">
                 {% csrf_token %}
                 <input type="text" id="cep" name="cep" placeholder="Digite o seu CEP" required>
                 <button class="btn-cep" type="submit">Calcular</button>

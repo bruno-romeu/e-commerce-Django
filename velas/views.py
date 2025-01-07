@@ -55,27 +55,31 @@ class ProdutoDetailView(DetailView):
     def get_context_data(self, **kwargs):
         context =  super().get_context_data(**kwargs)
         produto = self.object
-        tamanhos = produto.tamanhos.all()
-        print(f'produto: {produto}, tamanhos: {tamanhos}')
-        context['tamanhos_disponiveis'] = tamanhos
+        essencia = produto.essencia.all()
+        print(f'produto: {produto}, essencia: {essencia}')
+        context['essencias_disponiveis'] = essencia
+
+        tamanho = produto.tamanhos
     
 
-        cep_destino = self.request.GET.get("cep", "")
+        cep_destino = self.request.GET.get("cep", "").strip()
         cep_origem = "93800-120"
 
-        if cep_destino:
+        if cep_destino and tamanho:
             try:
                 frete = calcular_frete_melhor_envio(
                     cep_origem=cep_origem,
                     cep_destino=cep_destino,
-                    peso=Tamanho.peso,
-                    diâmetro=Tamanho.diâmetro,
-                    altura=Tamanho.altura,
-                    circunferência=Tamanho.circunferência,
+                    peso=tamanho.peso,
+                    diâmetro=tamanho.diâmetro,
+                    altura=tamanho.altura,
+                    circunferência=tamanho.circunferência,
                 )
                 context["frete"] = frete
             except Exception as e:
                 context["frete_erro"] = f"Erro ao calcular frete: {e}"
+        else:
+            context["frete_erro"] = "Nenhum tamanho disponível ou CEP não informado."
         return context
     
     def ProdutosCategoria(request, nome_categoria):

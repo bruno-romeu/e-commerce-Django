@@ -22,17 +22,17 @@ class Tamanho(models.Model):
 
 class Essencia(models.Model):
     id_essencia = models.AutoField(primary_key=True)
-    essencia = models.CharField(max_length=25, blank=True, null=True)
+    nome_essencia = models.CharField(max_length=25, blank=True, null=True)
 
     def __str__(self):
-        return self.essencia
+        return self.nome_essencia
 
 
 class Produto(models.Model):
     id_prod = models.AutoField(primary_key=True)
     categoria = models.ForeignKey(Categoria, on_delete=models.PROTECT, related_name='vela_categoria')
-    tamanhos = models.ManyToManyField(Tamanho, related_name='produto')
-    essencia = models.ForeignKey(Essencia, on_delete=models.PROTECT, related_name='vela_esencia')
+    tamanhos = models.ForeignKey(Tamanho, related_name='produto', on_delete=models.PROTECT)
+    essencia = models.ManyToManyField(Essencia)
     valor = models.DecimalField(max_digits=10 ,decimal_places=2)
     descricao = models.TextField(max_length=50, blank=True, null=True)
     foto = models.ImageField(upload_to='velas/', blank=True, null=True)
