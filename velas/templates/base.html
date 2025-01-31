@@ -1,0 +1,169 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Balm</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    {% block extra_css %}{% endblock %}
+</head>
+<body>
+
+    <header >
+        <div class="div-login"><a href="#" class="login">Minha Conta</a></div>
+
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="{% url 'home' %}"><img class="logo" src="{% static 'img/logo balm.jpg' %}" alt="logo"></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#conteudoNavbarSuportado" aria-controls="conteudoNavbarSuportado" aria-expanded="false" aria-label="Alterna navegação">
+                <span class="navbar-toggler-icon"></span>
+            </button> 
+            <div class="collapse navbar-collapse" id="conteudoNavbarSuportado">
+                <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="{% url 'home' %}">Início <span class="sr-only">(página atual)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'sobre' %}">Quem Somos</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'personalizar' %}">Tudo Personalizável</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                    Produtos
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+
+                        {% for categoria in categorias %}
+                            <a class="dropdown-item" href="{% url 'produtos' nome_categoria=categoria.nome_categoria %}">{{ categoria.nome_categoria }}</a>
+                        {% endfor %}
+                        <hr class="linha-drop">
+                        <a class="dropdown-item" href="{% url 'personalizar' %}">Personalize o seu pedido</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'contato' %}">Contato</a>
+                </li>
+                </ul>
+                <form method="GET" action="{% url 'home' %}" class="form-inline my-2 my-lg-0">
+                    <input class="form-control mr-sm-2" type="search" value="{{ request.GET.q }}" name="search" placeholder="O que você está buscando?" aria-label="Pesquisar">
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><img src="{% static 'img/search.svg' %}" alt="buscar"></button>
+                </form>
+
+                <div class="div-cart">
+                    <button class="carrinho" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight"><img class="carrinho-img" src="{% static 'img/bag-items.png' %}" alt="carrinho"><span id="cart-count">0</span>
+                    </button>
+                </div>
+            </div>
+
+            
+
+
+        </nav>
+        
+    </header>   
+
+    <div class="offcanvas offcanvas-end" data-bs-scroll="true" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Sua Sacola de Compras</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+            <p>Try scrolling the rest of the page to see this option in action.</p>
+        </div>
+    </div>
+
+    {% block content %}
+
+    {% endblock %}
+
+
+<footer class="text-center bg-body-tertiary">
+    <div class="container pt-4">
+        <section class="mb-4">
+        <!-- Instagram -->
+        <a
+            data-mdb-ripple-init
+            class="btn btn-link btn-floating btn-lg text-body m-1"
+            href="https://www.instagram.com/velasbalm/" target="_blank"
+            role="button"
+            data-mdb-ripple-color="dark"
+            ><i class="fab fa-facebook-f"></i
+        ><img src="{% static 'icons/instagram.png' %}" title="Instagram" alt="Instagram"></img></a>
+    
+        <!-- WhatsApp -->
+        <a
+            data-mdb-ripple-init
+            class="btn btn-link btn-floating btn-lg text-body m-1"
+            href="https://wa.me/555199326402" target="_blank"
+            role="button"
+            data-mdb-ripple-color="dark"
+            ><i class="fab fa-twitter"></i
+        ><img src="{% static 'icons/whatsapp (1).png' %}" title="WhatsApp" alt="WhatsApp"></img></a>
+        
+    
+        <!-- TikTok -->
+        <a
+            data-mdb-ripple-init
+            class="btn btn-link btn-floating btn-lg text-body m-1"
+            href="https://www.tiktok.com/@velasbalm?_t=ZM-8tOkScNq9WI&_r=1" target="_blank"
+            role="button"
+            data-mdb-ripple-color="dark"
+            ><i class="fab fa-google"></i
+        ><img src="{% static 'icons/tik-tok.png' %}" title="TikTok" alt="Tik Tok"></img></a>
+        
+    
+        <!-- Email -->
+        <a
+            data-mdb-ripple-init
+            class="btn btn-link btn-floating btn-lg text-body m-1"
+            href="mailto:comunicacaobalm.com.br@gmail.com"
+            role="button"
+            data-mdb-ripple-color="dark"
+            ><i class="fab fa-instagram"></i
+        ><img src="{% static 'icons/envelope.png' %}" title="Email" alt="Email"></img></a>
+        
+        </section>
+    </div>
+    
+    <div class="text-center p-3">
+        © 2025 Copyright: Balm
+        
+    </div>
+</footer>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+    const cartCountElement = document.getElementById("cart-count");
+    const buyButton = document.querySelector(".btn-add-cart");
+    const quantityInput = document.getElementById("quantity");
+
+    if (buyButton && cartCountElement && quantityInput) {
+        buyButton.addEventListener("click", function () {
+        let currentCount = parseInt(cartCountElement.textContent);
+        let selectedQuantity = parseInt(quantityInput.value);
+
+        cartCountElement.textContent = currentCount + selectedQuantity;
+        });
+    }
+    });
+</script>
+
+
+
+    
+</body>
+</html>

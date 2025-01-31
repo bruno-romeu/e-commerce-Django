@@ -1,0 +1,130 @@
+@charset "UTF-8";
+
+main{
+    margin: 3rem;
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+    justify-content: center ;
+}
+
+.foto-detail {
+    width: 500px;
+    border-radius: 10px;
+    margin-right: 50px;
+}
+
+
+
+.selecione{
+    border-radius: 10px;
+    align-items: top;
+}
+
+#tamanho{
+    border-radius: 10px;
+    padding: 5px;
+}
+
+.quantity-selector{
+    margin-left: 0%;
+    letter-spacing: none;
+    display: flex;
+    
+}
+
+#quantity{
+    border-style: solid;
+    border-left: none;
+    border-right: none;
+    width: 50px;
+    height: 40px;
+    border-color: #000;   
+    text-align: center; 
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button{
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.btn-decrement{
+    border-style: solid;
+    border-right: none;
+    background-color: transparent;
+    border-bottom-left-radius: 10px;
+    border-top-left-radius: 10px;
+
+}
+
+.btn-increment{
+    border-style: solid;
+    border-left: none;
+    background-color: transparent;
+    border-bottom-right-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.buscacep{
+    display: flex;
+}
+
+
+#cep{
+    border-bottom-left-radius: 10px;
+    border-top-left-radius: 10px;
+    border-style: solid;
+    padding: 3px;
+    border-color: #000;
+    border-right: none;
+    width: 250px;
+    text-align: justify;
+}
+
+.btn-cep{
+    color: #00154E;
+    background-color: transparent;
+    border-style: solid;
+    border-color: #00154E   ;
+    border-bottom-right-radius: 10px;
+    border-top-right-radius: 10px;
+    padding: 5px 8px;
+    font-weight: normal;
+    width: 150px;
+}
+
+.btn-cep:hover{
+    cursor: pointer;
+}
+
+.btn-add-cart{
+    width: 300px;
+    height: 40px;
+    color: #F4F4F9;
+    border-color: #00154E;
+    border-style: solid;
+    border-radius: 50px;
+    background-color: #00154E;
+    transition: 0.5s;
+    padding: 0px 6px ;
+    margin-top: auto;
+    margin-left: auto;
+    margin-bottom: auto;
+    align-items: center;
+    font-weight: bold;
+}
+
+.btn-add-cart:hover{
+    color:#F4F4F9;
+    background-color: #00154ec6;
+    transition: 0.5s;
+    cursor: pointer;
+}
+
+#buy{
+    display: flex;
+    justify-content: space-around;
+    margin-top: auto;
+    margin-left: auto;
+}

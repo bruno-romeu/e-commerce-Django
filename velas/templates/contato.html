@@ -1,0 +1,116 @@
+{% extends 'base.html' %}
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/contato.css' %}">
+{% endblock %}
+    <title>Balm</title>
+</head>
+<body>
+    {% block content %}
+
+    <main>
+        <section class="section-contato">
+            <div class="contato">
+                <h2>CONTATO</h2>
+                <ul>
+                    <li class="list-contato">
+                        <a href="https://wa.me/555199326402" target="_blank"><img src="{% static 'img/whatsapp-icon.svg' %}" alt="">5551999326402</a>
+                    </li>
+                    <li class="list-contato">
+                        <a href="tel:5551999326402"><img src="{% static 'img/celular-icon.svg' %}" alt="telefone">(51) 99932-6402</a>
+                    </li>
+                    <li class="list-contato">
+                        <a href="mailto:comunicacaobalm.com.br@gmail.com"><img src="{% static 'img/email-icon.svg' %}" alt="email">comunicacaobalm.com.br@gmail.com</a>
+                    </li>
+                    <li class="list-contato">
+                        <a href="https://www.google.com/maps/@-29.6433539,-51.007024,3a,75y,189.93h,90t/data=!3m7!1e1!3m5!1sTQHv7HC7UwAH7V8C82OShA!2e0!6shttps:%2F%2Fstreetviewpixels-pa.googleapis.com%2Fv1%2Fthumbnail%3Fcb_client%3Dmaps_sv.tactile%26w%3D900%26h%3D600%26pitch%3D0%26panoid%3DTQHv7HC7UwAH7V8C82OShA%26yaw%3D189.93!7i16384!8i8192?entry=ttu&g_ep=EgoyMDI1MDEyMi4wIKXMDSoASAFQAw%3D%3D" target="_blank"><img src="{% static 'img/local-icon.svg' %}" alt="localização">Rua Chuí 39, Centro, Sapiranga</a>
+                    </li>
+                </ul>
+            </div>
+            
+            <div class="form-cli">
+                <form id="meuForm"  onsubmit="event.preventDefault(); enviarFormulario();" method="post" enctype="application/x-www-form-urlencoded" class="form-contato">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <label for="exampleFormControlInput1">Nome
+                        </label>
+                        
+                        <input value="{{dados_cliente.Nome.value|default_if_none:''}}" name="Nome" type="text" class="form-control" id="exampleFormControlInput1" placeholder="Nome Completo">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleFormControlInput1">Endereço de email
+                        </label>
+                        <input type="email" name="Email" value="{{ dados_cliente.Email.value|default_if_none:''}}" class="form-control" id="exampleFormControlInput1" placeholder="nome@exemplo.com">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleFormControlInput1">Contato
+                        </label>
+                        <input type="tel" name="Número" value="{{ dados_cliente.Número.value|default_if_none:''}}" class="form-control" id="exampleFormControlInput1" placeholder="(51) _____-____">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleFormControlTextarea1">Mensagem</label>
+                        <textarea class="form-control"  id="exampleFormControlTextarea1" name="Mensagem" rows="3" placeholder="Deixe aqui a sua mensagem...">{{dados_cliente.Mensagem.value|default_if_none:''}} </textarea>
+                    </div>
+                    
+                                        <!-- Modal grande -->
+                    <button type="submit" class="btn btn-primary-enviar" data-toggle="modal" data-target=".bd-example-modal-lg">Enviar</button>
+
+                    <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-lg">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">Mensagem enviada</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <p class="modal-text">Entraremos em contato em breve.</p>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+
+            <script>
+                function enviarFormulario() {
+                    // Obter os dados do formulário
+                    var dadosFormulario = $('#meuForm').serialize();
+
+                    // Envio AJAX para o servidor
+                    $.ajax({
+                        type: 'POST',
+                        url: '/enviar_formulario/',
+                        data: dadosFormulario,
+                        success: function(response) {
+                            $('#meuForm').trigger('reset'); // Reseta o formulário
+                            $('.bd-example-modal-lg').modal('show'); // Exibe o modal de confirmação
+                        },
+                        error: function(error) {
+                            console.error("Erro ao enviar os dados:", error);
+                        }
+                    });
+                }
+            </script>
+        </section>
+    </main>
+    
+
+    {% endblock %}
+</body>
+</html>
