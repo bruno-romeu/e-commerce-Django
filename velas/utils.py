@@ -22,7 +22,7 @@ def calcular_frete_melhor_envio(cep_origem, cep_destino, peso, altura, diâmetro
                 'quantity': 1
             }
         ],
-        'services': ['SEDEX'],
+        'services': '1,2,3,8,13',
     }
 
     response = requests.post(url, json=data, headers=headers)

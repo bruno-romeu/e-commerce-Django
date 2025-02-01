@@ -128,3 +128,18 @@ input[type=number]::-webkit-outer-spin-button{
     margin-top: auto;
     margin-left: auto;
 }
+
+.modal-header.bg-danger {
+    background-color: #dc3545; 
+    color: white;
+}
+
+.modal-body p {
+    font-size: 16px;
+    font-weight: normal !important;
+}
+
+.text-erro-frete{
+    color: #000 !important;
+
+}

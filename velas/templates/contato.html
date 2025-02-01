@@ -88,28 +88,10 @@
 
 
             <script>
-                function enviarFormulario() {
-                    // Obter os dados do formulário
-                    var dadosFormulario = $('#meuForm').serialize();
-
-                    // Envio AJAX para o servidor
-                    $.ajax({
-                        type: 'POST',
-                        url: '/enviar_formulario/',
-                        data: dadosFormulario,
-                        success: function(response) {
-                            $('#meuForm').trigger('reset'); // Reseta o formulário
-                            $('.bd-example-modal-lg').modal('show'); // Exibe o modal de confirmação
-                        },
-                        error: function(error) {
-                            console.error("Erro ao enviar os dados:", error);
-                        }
-                    });
-                }
+                
             </script>
         </section>
     </main>
-    
 
     {% endblock %}
 </body>

@@ -5,6 +5,7 @@ from velas.forms import ClienteModelForm
 from brazilcep import get_address_from_cep, exceptions
 from .utils import calcular_frete_melhor_envio
 from django.http import JsonResponse
+import json
 
 
 class HomeListView(ListView):
@@ -65,21 +66,43 @@ class ProdutoDetailView(DetailView):
         cep_destino = self.request.GET.get("cep", "").strip()
         cep_origem = "93800-120"
 
-        if cep_destino and tamanho:
-            try:
-                frete = calcular_frete_melhor_envio(
-                    cep_origem=cep_origem,
-                    cep_destino=cep_destino,
-                    peso=tamanho.peso,
-                    diâmetro=tamanho.diâmetro,
-                    altura=tamanho.altura,
-                    circunferência=tamanho.circunferência,
-                )
-                context["frete"] = frete
-            except Exception as e:
-                context["frete_erro"] = f"Erro ao calcular frete: {e}"
-        else:
-            context["frete_erro"] = "Nenhum tamanho disponível ou CEP não informado."
+        if cep_destino:
+            if tamanho:
+                try:
+                    fretes = calcular_frete_melhor_envio(
+                        cep_origem=cep_origem,
+                        cep_destino=cep_destino,
+                        peso=tamanho.peso,
+                        diâmetro=tamanho.diâmetro,
+                        altura=tamanho.altura,
+                        circunferência=tamanho.circunferência,
+                    )
+
+                    serviços_disponíveis = []
+                    for frete in fretes:
+                        if frete.get('price') and frete.get('delivery_time'):
+                            serviços_disponíveis.append({
+                                'servico':frete['name'],
+                                'preco':frete['price'],
+                                'prazo':frete['delivery_time']
+                            })
+
+                    context["frete"] = serviços_disponíveis
+                except Exception as e:
+                    try:
+                        erro_data = json.loads(str(e))
+                        erros = erro_data.get("errors", {})
+                        mensagens=  []
+
+                        for campo, mensagem_lista in erros.items():
+                            mensagens.append(f'{mensagem_lista[0]}')
+                        msg_erro = " ".join(mensagens) if mensagens else "Ocorreu um erro desconhecido."
+                    except:
+                        msg_erro = 'Informe um CEP válido para calcular o frete.'
+                    
+                    context['frete_erro'] = msg_erro
+            else:
+                context["frete_erro"] = "Nenhum tamanho disponível ou CEP não informado."
         return context
     
     def ProdutosCategoria(request, nome_categoria):

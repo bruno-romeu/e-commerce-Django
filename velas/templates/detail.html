@@ -49,40 +49,46 @@
             <form class="buscacep" method="get">
                 {% csrf_token %}
                 <input type="text" id="cep" name="cep" placeholder="Digite o seu CEP" required>
-                <button class="btn-cep" type="submit">Calcular</button>
+                <button class="btn-cep" type="submit" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Calcular</button>
             </form>
             {% if frete %}
                 <h3>Opções de Frete:</h3>
-                <ul>
-                    {% for item in frete %}
-                    <li>
-                        Serviço: {{item.name}} - Preço: R${{item.price | floatformat:2}} - Prazo: {{item.delivery_time}} dias
-                    </li>
+                <div id="frete-opcoes">
+                    {% for servico in frete %}
+                        <div class="frete-item">
+                            <h4>{{ servico.servico }}</h4>
+                            <p>Preço: R${{ servico.preco|floatformat:2 }}</p>
+                            <p>Prazo: {{ servico.prazo }} dias</p>
+                        </div>
                     {% endfor %}
-                </ul>
+                </div>
             {% elif frete_erro %}
-                <p class="error">{{frete_erro}}</p>
+
+            <div class="modal fade" id="staticBackdrop" data-show="{{ frete_erro|yesno:'true,false' }}" tabindex="-1" aria-labelledby="modalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header bg-danger text-white">
+                            <h5 class="modal-title" id="modalLabel">Erro ao calcular o Frete</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
+                        </div>
+                        <div class="modal-body">
+                            <p class="text-danger fw-bold text-erro-frete">
+                                {{ frete_erro }}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            
+                
             {% endif %}
 
             
         </div>
 
         
-    </main>
-
-    <script>
-        function updateQuantity(change) {
-            const quantityInput = document.getElementById('quantity');
-            let currentQuantity = parseInt(quantityInput.value);
-        
-            if (!isNaN(currentQuantity)) {
-                currentQuantity += change;
-                if (currentQuantity < 1) currentQuantity = 1; // Não permitir valores menores que 1
-                quantityInput.value = currentQuantity;
-            }
-            }
-    </script>
-        
+    </main>       
     {% endblock %}
 </body>
 </html>
