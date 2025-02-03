@@ -1,8 +1,7 @@
-from django.shortcuts import render, get_object_or_404, redirect
-from velas.models import Produto, Categoria, Tamanho
+from django.shortcuts import render, get_object_or_404
+from velas.models import Produto, Categoria, Carrinho, ItemCarrinho
 from django.views.generic import ListView, TemplateView, DetailView
 from velas.forms import ClienteModelForm
-from brazilcep import get_address_from_cep, exceptions
 from .utils import calcular_frete_melhor_envio
 from django.http import JsonResponse
 import json
@@ -109,7 +108,3 @@ class ProdutoDetailView(DetailView):
         categoria = get_object_or_404(Categoria, nome_categoria=nome_categoria)
         produtos = Produto.objects.filter(categoria=categoria)
         return render(request, 'produtos.html', {'produtos':produtos, 'categoria':categoria})
-
-
-
-

@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 class Categoria(models.Model):
     id_cat = models.AutoField(primary_key=True)
@@ -82,3 +83,34 @@ class Clientes(models.Model):
     class Meta:
         verbose_name = 'Cliente'
         verbose_name_plural = 'Clientes'
+
+class Carrinho(models.Model):
+    usuario = models.ForeignKey(User, on_delete=models.CASCADE, related_name='carrinho', null=True, blank=True)
+    criado_em = models.DateTimeField(auto_now_add=True)
+    atualizado_em = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return f'Carrinho de {self.usuario.username if self.usuario else 'Cliente Anônimo'}'
+    
+    def total(self):
+        return sum(item.subtotal() for item in self.itens.all())
+    
+    class Meta:
+        verbose_name = 'Carrinho'
+        verbose_name_plural = 'Carrinhos'
+
+class ItemCarrinho(models.Model):
+    carrinho = models.ForeignKey(Carrinho, on_delete=models.CASCADE, related_name='itens')
+    produto = models.ForeignKey(Produto, on_delete=models.CASCADE)
+    quantidade = models.PositiveIntegerField(default=1)
+    preco_unitario = models.DecimalField(max_digits=10, decimal_places=2)
+
+    def subtotal(self):
+        return self.quantidade * self.preco_unitario
+
+    def __str__(self):
+        return f"{self.quantidade}x {self.produto.id_prod} - R$ {self.preco_unitario}"
+
+    class Meta:
+        verbose_name = 'Item do Carrinho'
+        verbose_name_plural = 'Itens do Carrinho'

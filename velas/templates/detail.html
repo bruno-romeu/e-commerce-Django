@@ -49,18 +49,24 @@
             <form class="buscacep" method="get">
                 {% csrf_token %}
                 <input type="text" id="cep" name="cep" placeholder="Digite o seu CEP" required>
-                <button class="btn-cep" type="submit" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Calcular</button>
+                <button id="calcularFrete" class="btn-cep" type="submit" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Calcular</button>
             </form>
             {% if frete %}
-                <h3>Opções de Frete:</h3>
-                <div id="frete-opcoes">
-                    {% for servico in frete %}
-                        <div class="frete-item">
-                            <h4>{{ servico.servico }}</h4>
-                            <p>Preço: R${{ servico.preco|floatformat:2 }}</p>
-                            <p>Prazo: {{ servico.prazo }} dias</p>
-                        </div>
-                    {% endfor %}
+                <div class="fretes">
+                    <h3>Opções de Frete:</h3>
+                    <hr>
+                    <div id="frete-opcoes">
+                        {% for servico in frete %}
+                            <div class="frete-item">
+                                <h4>{{ servico.servico }}</h4>
+                                <div class="info-frete">
+                                    <p>Prazo de Entrega: {{ servico.prazo }} dias</p>
+                                    <p class="valor-frete">R${{ servico.preco|floatformat:2 }}</p>
+                                </div>
+                            </div>
+                            <hr>
+                        {% endfor %}
+                    </div>
                 </div>
             {% elif frete_erro %}
 

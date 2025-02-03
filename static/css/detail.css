@@ -143,3 +143,23 @@ input[type=number]::-webkit-outer-spin-button{
     color: #000 !important;
 
 }
+
+
+.fretes{
+    margin-top: 50px;
+    padding: 15px;
+    background-color: transparent;
+    border: solid;
+    border-color: #00154E;
+    border-radius: 8px;
+}
+
+.info-frete{
+    display: flex;
+    justify-content: space-between ;
+}
+
+.valor-frete{
+    color: #00154E;
+    font-weight: bold;
+}
