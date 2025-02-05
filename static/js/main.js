@@ -4,15 +4,29 @@ document.addEventListener("DOMContentLoaded", function () {
     const buyButton = document.querySelector(".btn-add-cart");
     const quantityInput = document.getElementById("quantity");
 
+    // Recupera o número total de itens do localStorage ou define como 0 se não existir
+    let totalItems = parseInt(localStorage.getItem("totalItems")) || 0;
+
+    // Atualiza o contador dinâmico ao carregar a página
+    if (cartCountElement) {
+        cartCountElement.textContent = totalItems;
+    }
+
     if (buyButton && cartCountElement && quantityInput) {
         buyButton.addEventListener("click", function () {
-        let currentCount = parseInt(cartCountElement.textContent);
-        let selectedQuantity = parseInt(quantityInput.value);
+            let selectedQuantity = parseInt(quantityInput.value);
 
-        cartCountElement.textContent = currentCount + selectedQuantity;
+            // Atualiza o número total de itens
+            totalItems += selectedQuantity;
+
+            // Salva o número total de itens no localStorage
+            localStorage.setItem("totalItems", totalItems);
+
+            // Atualiza o contador dinâmico
+            cartCountElement.textContent = totalItems;
         });
     }
-    });
+});
 
 
 // Função que configura o botão que seleciona a quantidade de produtos no detail.html
@@ -57,3 +71,99 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 });
 
+//Função que controla os intens do sidebar de carrinho na página detail.hmtl
+document.addEventListener("DOMContentLoaded", function () {
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+    updateCartDisplay();
+    updateTotalItems();
+
+    document.querySelector(".btn-add-cart").addEventListener("click", function () {
+        let productId = this.getAttribute('data-product-id');
+        let productName = this.getAttribute('data-product-name');
+        let productPrice = parseFloat(this.getAttribute('data-product-price'));
+        let quantity = parseInt(document.getElementById("quantity").value);
+        if (isNaN(quantity) || quantity < 1) {
+            alert("Por favor, insira uma quantidade válida.");
+            return;
+        }
+        let essence = document.getElementById("tamanho").options[document.getElementById("tamanho").selectedIndex].text;
+        let photo = this.getAttribute('data-product-photo')
+
+        let existingProduct = cart.find(item => item.id === productId && item.essence === essence);
+        if (existingProduct) {
+            existingProduct.quantity += quantity;
+        } else {
+            cart.push({ 
+                id: productId, 
+                name: productName, 
+                price: productPrice, 
+                quantity: quantity, 
+                essence: essence, 
+                image: photo 
+            });
+        }
+
+        localStorage.setItem("cart", JSON.stringify(cart)); 
+        updateCartDisplay(); 
+        updateTotalItems(); 
+    });
+
+    function updateCartDisplay() {
+        let cartDisplay = document.querySelector(".offcanvas-body");
+        cartDisplay.innerHTML = ""; 
+    
+        if (cart.length === 0) {
+            cartDisplay.innerHTML = `<p class="empty-cart-message">Nenhum item adicionado ao carrinho.</p>`;
+        } else {
+            cart.forEach((item, index) => {
+                cartDisplay.innerHTML += `
+                    <div class="cart-item">
+                        <img class="foto-prod-cart" src="${item.image}" alt="${item.name}">
+                        <div class="text-cart">
+                            <p>${item.name}</p>
+                            <p>(${item.essence}) - ${item.quantity}x </p>
+                            <p>R$${item.price.toFixed(2)}</p>
+                        </div>
+                        <button class="btn-remove-item" data-index="${index}">X</button>
+                    </div>
+                `;
+            });
+        }
+    
+        addRemoveItemListeners(); // Adiciona event listeners aos botões de remover
+    }
+
+    // Adiciona event listeners aos botões de remover
+    function addRemoveItemListeners() {
+        const removeButtons = document.querySelectorAll(".btn-remove-item");
+
+        removeButtons.forEach(button => {
+            button.addEventListener("click", function () {
+                const index = parseInt(button.getAttribute("data-index")); // Obtém o índice do item
+
+                // Remove o item do carrinho
+                cart.splice(index, 1);
+
+                localStorage.setItem("cart", JSON.stringify(cart)); // Atualiza o localStorage
+                updateCartDisplay(); // Atualiza a exibição do carrinho
+                updateTotalItems(); // Atualiza o contador dinâmico
+            });
+        });
+    }
+
+    // Atualiza o número total de itens no contador dinâmico
+    function updateTotalItems() {
+        const cartCountElement = document.getElementById("cart-count");
+
+        if (cartCountElement) {
+            // Calcula o total de itens no carrinho
+            let totalItems = cart.reduce((total, item) => total + item.quantity, 0);
+
+            // Atualiza o contador dinâmico
+            cartCountElement.textContent = totalItems;
+
+            // Salva o total de itens no localStorage
+            localStorage.setItem("totalItems", totalItems);
+        }
+    }
+});

@@ -27,6 +27,11 @@ main{
     margin-bottom: 0;
     padding-bottom: 32px;
     text-indent: 2rem;
+    color: #000;
+    display: block;
+    text-align: left;
+    padding-top: 2rem;
+    margin-bottom: 2rem;
 }
 
 .linha-prod{
@@ -45,13 +50,6 @@ main{
     align-items: center;
 }
 
-h1{
-    color: #000;
-    display: block;
-    text-align: left;
-    padding-top: 2rem;
-    margin-bottom: 2rem;
-}
 
 .card-pai{
     flex: 1;
@@ -96,19 +94,19 @@ h1{
     }
 }
 
-    h3{
+    .text-categoria{
         color: #000;
         font-size: 18px;
         text-align: center;
     }
 
-    h4{
+    .text-tamanho{
         font-size: 16px;
         color: #000;
         text-align: center;
     }
 
-    p{
+    .text-valor{
         font-weight: bold;
         color: #00154E;
         text-align: center;
@@ -160,5 +158,8 @@ h1{
 }
 
 .no-results{
+    font-weight: bold;
+    color: #00154E;
+    text-align: center;
     padding: 50px;
 }

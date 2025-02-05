@@ -16,13 +16,13 @@ main{
 
 
 
-h1{
+.title-sobre{
     color: #000;
     text-align: center;
     font-weight: bolder;
 }
 
-h3{
+.sub-title-sobre{
     color: #00154E !important;
     text-align: justify;
     font-weight: bold;
@@ -31,7 +31,7 @@ h3{
 
 }
 
-p{
+.text-sobre{
     
     font-size: 20px;
     color: #000;

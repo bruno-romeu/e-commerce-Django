@@ -131,7 +131,7 @@ input[type=number]::-webkit-outer-spin-button{
 
 .modal-header.bg-danger {
     background-color: #dc3545; 
-    color: white;
+    color: #F4F4F9;
 }
 
 .modal-body p {
@@ -163,3 +163,4 @@ input[type=number]::-webkit-outer-spin-button{
     color: #00154E;
     font-weight: bold;
 }
+

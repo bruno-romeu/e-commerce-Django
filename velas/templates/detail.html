@@ -19,7 +19,7 @@
     <title>Balm</title>
 </head>
 <body>
-    {% block content %}
+    {% block content %} 
 
     <main>
         
@@ -43,7 +43,7 @@
                     <input type="number" id="quantity" value="1" min="1">
                     <button class="btn-increment" onclick="updateQuantity(1)">+</button>
                 </div>
-                <button type="button" class="btn-add-cart" data-quantity="1">COMPRAR</button>
+                <button type="button" class="btn-add-cart" data-quantity="1" data-product-id="{{produto.id_prod}}" data-product-name="{{ produto.categoria }} {{ produto.tamanhos }}" data-product-price="{{ produto.valor }}" data-product-photo="{{ produto.foto.url }}">COMPRAR</button>
             </div>
             <label for="cep">Calcular Frete:</label><br>
             <form class="buscacep" method="get">

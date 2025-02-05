@@ -1,18 +1,14 @@
 @charset "UTF-8";
 
-*{
-    text-align: center;
-
-}
-
 body{
     background-color: #F4F4F9;
 }
 
 .personalizar{
     margin: 50px 0 50px 0;
+    text-align: center;
 }
 
-h1, p{
+.title-personalizar, .text-personalizar{
     margin: 0 20% 0 20%;
 }
