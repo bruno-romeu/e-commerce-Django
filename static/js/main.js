@@ -122,7 +122,7 @@ document.addEventListener("DOMContentLoaded", function () {
                         <div class="text-cart">
                             <p>${item.name}</p>
                             <p>(${item.essence}) - ${item.quantity}x </p>
-                            <p>R$${item.price.toFixed(2)}</p>
+                            <p>R$${(item.price.toFixed(2)).replace('.', ',')}</p>
                         </div>
                         <button class="btn-remove-item" data-index="${index}">X</button>
                     </div>
@@ -130,39 +130,33 @@ document.addEventListener("DOMContentLoaded", function () {
             });
         }
     
-        addRemoveItemListeners(); // Adiciona event listeners aos botões de remover
+        addRemoveItemListeners(); 
     }
 
-    // Adiciona event listeners aos botões de remover
     function addRemoveItemListeners() {
         const removeButtons = document.querySelectorAll(".btn-remove-item");
 
         removeButtons.forEach(button => {
             button.addEventListener("click", function () {
-                const index = parseInt(button.getAttribute("data-index")); // Obtém o índice do item
+                const index = parseInt(button.getAttribute("data-index")); 
 
-                // Remove o item do carrinho
                 cart.splice(index, 1);
 
-                localStorage.setItem("cart", JSON.stringify(cart)); // Atualiza o localStorage
-                updateCartDisplay(); // Atualiza a exibição do carrinho
-                updateTotalItems(); // Atualiza o contador dinâmico
+                localStorage.setItem("cart", JSON.stringify(cart));
+                updateCartDisplay(); 
+                updateTotalItems(); 
             });
         });
     }
 
-    // Atualiza o número total de itens no contador dinâmico
     function updateTotalItems() {
         const cartCountElement = document.getElementById("cart-count");
 
         if (cartCountElement) {
-            // Calcula o total de itens no carrinho
             let totalItems = cart.reduce((total, item) => total + item.quantity, 0);
 
-            // Atualiza o contador dinâmico
             cartCountElement.textContent = totalItems;
 
-            // Salva o total de itens no localStorage
             localStorage.setItem("totalItems", totalItems);
         }
     }

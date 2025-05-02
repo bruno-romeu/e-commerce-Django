@@ -1,279 +1,105 @@
 @charset "UTF-8";
 
 body{
-    flex-direction: column;
+    background-color: #F2F0EB;
     font-family: Arial, Helvetica, sans-serif;
-    border: 0%;
-    margin: 0%;
-    min-height: 100%;
-    width: 100%;
+    margin: 0 auto;
 }
-
-
 
 header{
-    background-color: #00154E !important;
-    color: #F4F4F9;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    width: 100%;
+    height: 100px !important;
+    max-height: 100px;
 }
 
-.div-login{
-    display: flex;
-
+.navbar-header{
+    background-color: #021F59 !important;
+    height: 100px !important;
 }
 
-.login{
-    color: #F4F4F9;
+.container-fluid .navbar-brand img{
+    max-height: 100px;
+}
+
+#navbarSupportedContent a{
+    color:#F2F0EB;
+    font-size: 20px;
+    font-family: Italiana, Arial, Helvetica, sans-serif;
+}
+
+.dropdown-menu li a{
+    color: #021F59 !important;
     font-weight: bold;
-    text-align: end;
-    align-items: end;
-    justify-content: end;
-    margin-left: auto;
-    padding: 0px 16px ;
-    text-decoration: none;
-}
-
-.login:hover{
-    color: #F4F4F9;
-    text-decoration: none;
-}
-
-.linha-drop{
-    padding: 0 !important;
-}
-
-.bg-light{
-    background-color: #00154E !important;
-    height: 110px;
-    position: static;
-    padding-top: 0px;
-}
-    .nav-link{
-        margin-right: 25px;
-        transition: 0.5s;
-        font-weight: bold;
-        border-radius: 8px;
-    }
-
-    .nav-link:hover{
-        font-weight: bold;
-        color: #00154E  !important;
-        background-color: #F4F4F9;
-        padding: 5px;
-        border-radius: 8px;
-        transition: 0.5s;
-    }
-
-.navbar-brand{
-    padding-top: 0px;
-}
-
-.logo{
-    width: 220px !important;
-    height: 140px !important;
-    margin-left: 5px;
-}
-
-.navbar-collapse > ul > li > a{
-    color: #F4F4F9 !important;
-    
-}
-
-.mr-auto{
-    margin-right: 80px !important;
-}
-
-.mr-sm-2{
-    width: 400px !important;
-    text-align: center !important;
-
-}
-
-.my-sm-0{
-    text-decoration: none !important;
-    height: 0%;
-    background-color: transparent !important;
-    border-color: transparent !important;
-    color: transparent !important;
-}
-
-.my-sm-0 > img{
-    height: 40px;
-    width: 40px;
-    background-color: transparent !important;
-    border-bottom-color: transparent !important;
-    color: transparent !important;
-}
-
-.my-sm-0 > img:hover{
-    background-color: transparent !important;
-    border: none;
-    color: transparent;
-
 }
 
 .dropdown-menu{
-    display: none;
+    background-color: #F2F0EB;
 }
 
-#navbarDropdown:hover{
-    .dropdown-menu{
-        display: flex;
-    }
-
-}
-
-.div-cart{
-    min-height: auto;
-    display: inline-block;
+.nav-link {
     position: relative;
+    display: inline-block;
+    text-decoration: none;
+    color: inherit;
+    padding-bottom: 5px;
+    transition: color 0.3s ease;
 }
 
-.carrinho{
-    text-decoration: none;
-    padding-top: 6px;
-    padding-bottom: 6px;
+.nav-link::before {
+    content: '';
+    position: absolute;
+    width: 0%;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: #F2F0EB;
+    transition: width 0.3s ease;
+}
+
+.nav-link:hover::before {
+    width: 100%;
+}
+
+.nav-profile:hover::before {
+    content: none !important;
+}
+
+.btn-outline-success{
+    border: none;
+}
+
+.btn-outline-success:hover{
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.bi-search{
+    color: #F2F0EB;
+}
+
+.list-itens{
+    margin-right: auto;
+    margin-left: auto;
+    gap: 1rem;
+}
+
+.list-icon{
+    margin-left: 0;
+    margin-right: 0 !important;
+}
+
+.btn-bag{
     background-color: transparent;
     border: none;
 }
 
-.carrinho:hover{
-    text-decoration:none
+.btn-bag:hover{
+    background-color: transparent;
 }
 
-.carrinho-img{
-    width: 40px;
-    height: 40px;
+.btn-bag:active{
+    background-color: transparent !important;
 }
 
-#cart-count{
-    position: absolute;
-    top: 2px;
-    right: -3px;
-    background-color: #F4F4F9;
-    border-radius: 15px;
-    color: #00154E;
-    font-weight: bolder;
-    font-size: 16px;
-    width: 20px;
-    height: 22px;
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-}
-
-footer.bg-body-tertiary{
-    bottom: 0 !important;
-    width: 100%;
-    padding: 20px;
-    background-color: #00154e48 !important;
-    box-sizing: border-box;
-}
-
-.container{
-    align-items: center;
-    text-align: center;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.mb-4{
-    align-items: center;
-    text-align: center;
-    img{
-        width: 20px;
-    }
-}
-
-.text-center{
-    text-align: center;
-    font-weight: bold;
-}
-
-.offcanvas {
-    display: block;
-    visibility: hidden; 
-    min-height: auto !important;
-
-}
-
-#offcanvasRight{
-    border-bottom-left-radius: 10px !important;
-    border-top-left-radius: 10px;
-    background-color: #F4F4F9;
-}
-
-.offcanvas-header{
-    background-color: #00154E;
-    color: #F4F4F9;
-    width: 100%;
-    border-top-left-radius: 10px;
-}
-
-#offcanvasWithBothOptionsLabel{
-    text-align: center !important;
-    align-items: center !important;
-}
-
-.btn-close{
-    color: #F4F4F9 !important;
-}
-
-.offcanvas-body {
-    padding: 20px;
-    background-color: #F4F4F9;
-    border-radius: 10px;
-}
-
-.cart-item {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px;
-    margin-bottom: 10px;
-    background-color: #F4F4F9 !important;
-    border: 1px solid #F4F4F9 !important;
-    border-radius: 5px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.cart-item p {
-    display: flexbox;
-    flex-direction: row !important;
-    margin: 0;
-    font-size: 16px;
-    color: #333;
-    text-align: center;
-    align-items: start;
-}
-
-
-.btn-remove-item {
-    background-color: #ff4d4d;
-    color: #F4F4F9 !important;
-    border: none;
-    padding: 5px 10px;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 14px;
-    
-}
-
-.btn-remove-item:hover {
-    background-color: #cc0000;
-}
-
-.empty-cart-message {
-    text-align: center;
-    font-size: 18px;
-    color: #888;
-    margin-top: 20px;
-}
-
-.foto-prod-cart{
-    width: 50px !important;
-    border-radius: 5px;
-    margin-right: 10px;
+.bi-search, .bi-person, .bi-bag{
+    font-size: 20px !important;
 }

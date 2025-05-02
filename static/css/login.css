@@ -1,0 +1,130 @@
+@charset "UTF-8";
+
+body{
+    margin: 0   ;
+    overflow: hidden;
+    background-color: #F4F4F9;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.login-page{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    position: relative;
+}
+
+.img-login{
+    width: 70%;
+    background-color: #00154E;
+
+    img{
+        height: fit-content;
+        width: 100%;
+    }
+
+}
+
+.div-login{
+    background-color: #F4F4F9 !important;
+    align-items: center;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.logo{
+    display: flex;
+    width: 200px;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 50px;
+    margin-top: auto;
+
+    img{
+        width: 100%;
+        border-radius: 10px;
+    }
+}
+
+.card-login{
+    padding: 15px 10px 30px 10px ;
+    border-radius: 10px;
+    background-color: #00154e3c;
+    align-items: center;
+    margin-left: auto;
+    box-shadow: 8px 8px 8px #00000051 ;
+
+    h2{
+        text-align: center;
+    }
+
+    hr{
+        border-color: #00154E;
+        width: 80%;
+    }
+}
+
+.form-group{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+
+a{
+    display: inline-flexbox;
+    margin: 20px 8px 0 8px;
+    text-decoration: none;
+    color: #00154E;
+    transition: 1s;
+}
+
+a:hover{
+    text-decoration: underline;
+    transition: 1s;
+}
+
+form{
+    margin: 25px;
+}
+
+input{
+    display: inline-flex;
+    align-items: center;
+    justify-content: right;
+    border-radius: 5px;
+    border-style: solid;
+    margin: 10px;
+}
+
+button{
+    display: flex;
+    border: none;
+    background-color: #F4F4F9;
+    border-radius: 10px;
+    padding: 10px;
+    justify-content: center;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+    transition: 0.5s;
+    color: #00154E;
+    font-weight: bold;
+}
+
+button:hover{
+    background-color: #00154E;
+    transition: 0.5s;
+    color: #F4F4F9;
+    cursor: pointer;
+}
+
+.error-msg{
+    text-align: center;
+    align-items: center;
+    color: red;
+}

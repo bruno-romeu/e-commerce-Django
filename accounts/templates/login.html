@@ -1,0 +1,58 @@
+{% block content %}
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    
+
+    {% block extra_css %}
+        <link rel="stylesheet" href="{% static 'css/login.css' %}">
+    {% endblock %}
+    <title>Balm</title>
+</head>
+<body>
+    <section class="login-page">
+        <div class="img-login">
+            <img src="{% static 'img/logo balm.jpg' %}" alt="tela de login">
+        </div>
+
+        <div class="div-login">
+            <div class="logo">
+                <img src="{% static 'img/logo balm.jpg' %}" alt="logo">
+            </div>
+            <div class="card-login">
+                <h2>Realize o login</h2>
+                <hr>
+                <form method="POST">
+                    {% csrf_token %}
+
+                    <div class="form-group">
+                        <label for="{{ login_form.email.id_for_label }}">Email:</label>
+                        {{ login_form.username }}
+                    </div>
+                
+                    <div class="form-group">
+                        <label for="{{ login_form.password.id_for_label }}">Senha:</label>
+                        {{ login_form.password }}
+                    </div>
+
+                    {% if messages %}
+                        {% for message in messages %}
+                            <p class="error-msg">{{ message }}</p>
+                        {% endfor %}
+                    {% endif %}
+                    <button type="submit">Entrar</button>
+                </form>    
+                <a href="#">Esqueceu sua senha?</a>
+                <a href="{% url 'register' %}">Crie uma conta!</a>
+            </div>
+        </div>
+    </section>
+
+{% endblock %}
+</body>
+</html>

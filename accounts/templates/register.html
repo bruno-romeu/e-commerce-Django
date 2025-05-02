@@ -1,0 +1,67 @@
+{% block content %}
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    {% block extra_css %}
+        <link rel="stylesheet" href="{% static 'css/register.css' %}">
+    {% endblock %}
+    <title>Balm</title>
+</head>
+<body>
+    <section class="register-page">
+        <div class="img-register">
+            <img src="{% static 'img/logo balm.jpg' %}" alt="tela de registro">
+        </div>
+
+        <div class="div-register">
+            <div class="logo">
+                <img src="{% static 'img/logo balm.jpg' %}" alt="logo">
+            </div>
+            <div class="card-register">
+                <h2>Crie a sua conta!</h2>
+                <hr>
+                <form method="POST">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <div class="input-register">
+                            <p>Email: </p>
+                            {{ user_form.email }}
+                        </div>
+
+                        <div class="input-register">
+                            <p>Senha: </p>
+                            {{ user_form.password1 }}
+                        </div>
+                        
+                        <div class="input-register">
+                            <p>Confirmar Senha: </p>
+                            {{ user_form.password2}}
+                        </div>
+
+                        {% if user_form.email.errors %}
+                            <p class="error-msg">{{ user_form.email.errors.0 }}</p>
+                        {% endif %}
+
+                        {% if user_form.password1.errors %}
+                            <p class="error-msg">{{ user_form.password1.errors.0 }}</p>
+                        {% endif %}
+
+                        {% if user_form.password2.errors %}
+                            <p class="error-msg">{{ user_form.password2.errors.0 }}</p>
+                        {% endif %}
+                    </div>
+
+                    <button type="submit">Criar conta</button>
+                </form>    
+            </div>
+        </div>
+    </section>
+
+{% endblock %}
+</body>
+</html>
