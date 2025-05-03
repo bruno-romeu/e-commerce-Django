@@ -1,26 +1,234 @@
 {% extends 'base.html' %}
 {% load static %}
 
-
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 {% block extra_css %}
 <link rel="stylesheet" href="{% static 'css/home.css' %}">
 {% endblock %}
-
-    <title>Balm</title>
-</head>
-<body>
-
     
 {% block content %}
 
-  
+    <main>
+        <section id="image-carousel" class="splide" aria-label="Beautiful Images">
+            <div class="splide__track">
+                <ul class="splide__list">
+                    <li class="splide__slide">
+                        <img src="{% static 'img/background-attachment.webp' %}" alt="">
+                    </li>
+                    <li class="splide__slide">
+                        <img src="{% static 'img/background-attachment.webp' %}" alt="">
+                    </li>
+                    <li class="splide__slide">
+                        <img src="{% static 'img/background-attachment.webp' %}" alt="">
+                    </li>
+                </ul>
+            </div>
+        </section>
 
+        <section class="conheca">
+            <div class="section-title">
+                <h2>CONHEÇA NOSSO PRODUTOS!</h2>
+            </div>
+
+            <div class="container-produtos">
+                <section class="splide splide-cards">
+                    <div class="splide__track track-card">
+                        <ul class="splide__list list-cards">
+
+                            <li class="splide__slide slide-card">
+                                <div class="card" >
+                                    <div class="card-img"><img src="{% static 'img/aromatizadores.jpg' %}" class="card-img-top" alt="aromatizadores"></div>
+                                    <div class="card-body">
+                                        <h5 class="card-title">Aromatizadores</h5>
+                                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                        <a href="#" class="btn btn-primary btn-veja-mais">Veja Mais</a>
+                                    </div>
+                                </div>
+                            </li>
+
+                            <li class="splide__slide slide-card">
+                                <div class="card" >
+                                    <div class="card-img"><img src="{% static 'img/velas.jpg' %}" class="card-img-top" alt="velas"></div>
+                                    <div class="card-body">
+                                        <h5 class="card-title">Velas</h5>
+                                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                        <a href="#" class="btn btn-primary btn-veja-mais">Veja Mais</a>
+                                    </div>
+                                </div>
+                            </li>
+
+                            <li class="splide__slide slide-card">
+                                <div class="card" >
+                                    <div class="card-img"><img src="{% static 'img/difusores.jpg' %}" class="card-img-top" alt="Difusores"></div>
+                                    <div class="card-body">
+                                        <h5 class="card-title">Difusores</h5>
+                                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                        <a href="#" class="btn btn-primary btn-veja-mais">Veja Mais</a>
+                                    </div>
+                                </div>
+                            </li>
+
+                            <li class="splide__slide slide-card">
+                                <div class="card" >
+                                    <div class="card-img"><img src="{% static 'img/sabonetes.jpg' %}" class="card-img-top" alt="sabonetes"></div>
+                                    <div class="card-body">
+                                        <h5 class="card-title">Sabonetes</h5>
+                                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                        <a href="#" class="btn btn-primary btn-veja-mais">Veja Mais</a>
+                                    </div>
+                                </div>
+                            </li>
+
+                            <li class="splide__slide slide-card">
+                                <div class="card" >
+                                    <div class="card-img"><img src="{% static 'img/kit.jpg' %}" class="card-img-top" alt="kit"></div>
+                                    <div class="card-body">
+                                        <h5 class="card-title">Kits Personalizados</h5>
+                                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                        <a href="#" class="btn btn-primary btn-veja-mais">Veja Mais</a>
+                                    </div>
+                                </div>
+                            </li>
+
+                        </ul>
+                    </div>
+                </section>
+            </div>
+        </section>
+
+        <section class="destaques">
+            <div class="section-title">
+                <h2>PRODUTOS EM DESTAQUE</h2>
+            </div>
+
+            <div class="container-destaques">
+                <section class="splide splide-cards">
+                    <div class="splide__track track-card">
+                        <ul class="splide__list list-cards">
+
+                            <li class="splide__slide slide-card">
+                                <div class="card" >
+                                    <div class="card-img"><img src="{% static 'img/aromatizadores.jpg' %}" class="card-img-top" alt="aromatizadores"></div>
+                                    <div class="card-body">
+                                        <h5 class="card-title">Aromatizadores</h5>
+                                        <p class="card-text">R$56,99</p>
+                                        <p class="text-default">Selecione a sua essência!</p>
+                                        <a href="#" class="btn btn-primary btn-veja-mais">Adicione ao carrinho</a>
+                                    </div>
+                                </div>
+                            </li>
+
+                            <li class="splide__slide slide-card">
+                                <div class="card" >
+                                    <div class="card-img"><img src="{% static 'img/velas.jpg' %}" class="card-img-top" alt="velas"></div>
+                                    <div class="card-body">
+                                        <h5 class="card-title">Velas</h5>
+                                        <p class="card-text">R$56,99</p>
+                                        <p class="text-default">Selecione a sua essência!</p>
+                                        <a href="#" class="btn btn-primary btn-veja-mais">Adicione ao carrinho</a>
+                                    </div>
+                                </div>
+                            </li>
+
+                            <li class="splide__slide slide-card">
+                                <div class="card" >
+                                    <div class="card-img"><img src="{% static 'img/difusores.jpg' %}" class="card-img-top" alt="Difusores"></div>
+                                    <div class="card-body">
+                                        <h5 class="card-title">Difusores</h5>
+                                        <p class="card-text">R$56,99</p>
+                                        <p class="text-default">Selecione a sua essência!</p>
+                                        <a href="#" class="btn btn-primary btn-veja-mais">Adicione ao carrinho</a>
+                                    </div>
+                                </div>
+                            </li>
+
+                            <li class="splide__slide slide-card">
+                                <div class="card" >
+                                    <div class="card-img"><img src="{% static 'img/sabonetes.jpg' %}" class="card-img-top" alt="sabonetes"></div>
+                                    <div class="card-body">
+                                        <h5 class="card-title">Sabonetes</h5>
+                                        <p class="card-text">R$56,99</p>
+                                        <p class="text-default">Selecione a sua essência!</p>
+                                        <a href="#" class="btn btn-primary btn-veja-mais">Adicione ao carrinho</a>
+                                    </div>
+                                </div>
+                            </li>
+
+                            <li class="splide__slide slide-card">
+                                <div class="card" >
+                                    <div class="card-img"><img src="{% static 'img/kit.jpg' %}" class="card-img-top" alt="kit"></div>
+                                    <div class="card-body">
+                                        <h5 class="card-title">Kits Personalizados</h5>
+                                        <p class="card-text">R$56,99</p>
+                                        <p class="text-default">Selecione a sua essência!</p>
+                                        <a href="#" class="btn btn-primary btn-veja-mais">Adicione ao carrinho</a>
+                                    </div>
+                                </div>
+                            </li>
+
+                        </ul>
+                    </div>
+                </section>
+            </div>
+
+        </section>
+    </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            new Splide('#image-carousel', {
+                type: 'fade',
+                rewind: true,
+            }).mount();
+    
+                document.querySelectorAll('.splide').forEach(function (el) {
+                    if (el.id !== 'image-carousel') {
+                        new Splide(el, {
+                            type: 'slide',
+                            perPage:3,
+                            perMove: 1,
+                            breakpoints: {
+                                768: { perPage: 1 },
+                                1024: { perPage: 2 },
+                            },
+                        }).mount();
+                }
+            });
+
+            var main = new Splide( '#main-slider', {
+                type       : 'fade',
+                heightRatio: 0.5,
+                pagination : false,
+                arrows     : false,
+                cover      : true,
+                } );
+
+                var thumbnails = new Splide( '#thumbnail-slider', {
+                rewind          : true,
+                fixedWidth      : 104,
+                fixedHeight     : 58,
+                isNavigation    : true,
+                gap             : 10,
+                focus           : 'center',
+                pagination      : false,
+                cover           : true,
+                dragMinThreshold: {
+                    mouse: 4,
+                    touch: 10,
+                },
+                breakpoints : {
+                    640: {
+                    fixedWidth  : 66,
+                    fixedHeight : 38,
+                    },
+                },
+                } );
+
+                main.sync( thumbnails );
+                main.mount();
+                thumbnails.mount();
+        });
+
+
+    </script>
+    
 {% endblock %}
-</body>
-</html>

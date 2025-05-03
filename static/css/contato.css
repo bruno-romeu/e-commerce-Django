@@ -53,8 +53,11 @@ main{
     }
 }
 
-.form-control{
+.form-control-contato{
     width: 800px;
+    border: solid 1px #00000081;
+    border-radius: 5px;
+    padding: 6px;
 }
 
 .list-contato{

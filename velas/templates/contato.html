@@ -29,16 +29,16 @@
                 <h2>CONTATO</h2>
                 <ul>
                     <li class="list-contato">
-                        <a href="https://wa.me/555199326402" target="_blank"><img src="{% static 'img/whatsapp-icon.svg' %}" alt="">5551999326402</a>
+                        <a href="https://wa.me/555199326402" target="_blank"><i class="bi bi-whatsapp"></i>5551999326402</a>
                     </li>
                     <li class="list-contato">
-                        <a href="tel:5551999326402"><img src="{% static 'img/celular-icon.svg' %}" alt="telefone">(51) 99932-6402</a>
+                        <a href="tel:5551999326402"><i class="bi bi-telephone"></i>(51) 99932-6402</a>
                     </li>
                     <li class="list-contato">
-                        <a href="mailto:comunicacaobalm.com.br@gmail.com"><img src="{% static 'img/email-icon.svg' %}" alt="email">comunicacaobalm.com.br@gmail.com</a>
+                        <a href="mailto:comunicacaobalm.com.br@gmail.com"><i class="bi bi-envelope"></i>comunicacaobalm.com.br@gmail.com</a>
                     </li>
                     <li class="list-contato">
-                        <a href="https://www.google.com/maps/@-29.6433539,-51.007024,3a,75y,189.93h,90t/data=!3m7!1e1!3m5!1sTQHv7HC7UwAH7V8C82OShA!2e0!6shttps:%2F%2Fstreetviewpixels-pa.googleapis.com%2Fv1%2Fthumbnail%3Fcb_client%3Dmaps_sv.tactile%26w%3D900%26h%3D600%26pitch%3D0%26panoid%3DTQHv7HC7UwAH7V8C82OShA%26yaw%3D189.93!7i16384!8i8192?entry=ttu&g_ep=EgoyMDI1MDEyMi4wIKXMDSoASAFQAw%3D%3D" target="_blank"><img src="{% static 'img/local-icon.svg' %}" alt="localização">Rua Chuí 39, Centro, Sapiranga</a>
+                        <a href="https://www.google.com/maps/@-29.6433539,-51.007024,3a,75y,189.93h,90t/data=!3m7!1e1!3m5!1sTQHv7HC7UwAH7V8C82OShA!2e0!6shttps:%2F%2Fstreetviewpixels-pa.googleapis.com%2Fv1%2Fthumbnail%3Fcb_client%3Dmaps_sv.tactile%26w%3D900%26h%3D600%26pitch%3D0%26panoid%3DTQHv7HC7UwAH7V8C82OShA%26yaw%3D189.93!7i16384!8i8192?entry=ttu&g_ep=EgoyMDI1MDEyMi4wIKXMDSoASAFQAw%3D%3D" target="_blank"><i class="bi bi-geo-alt"></i>Rua Chuí 39, Centro, Sapiranga</a>
                     </li>
                 </ul>
             </div>
@@ -50,21 +50,21 @@
                         <label for="exampleFormControlInput1">Nome
                         </label>
                         
-                        <input value="{{dados_cliente.Nome.value|default_if_none:''}}" name="Nome" type="text" class="form-control" id="exampleFormControlInput1" placeholder="Nome Completo">
+                        <input value="{{dados_cliente.Nome.value|default_if_none:''}}" name="Nome" type="text" class="form-control-contato" id="exampleFormControlInput1" placeholder="Nome Completo">
                     </div>
                     <div class="form-group">
                         <label for="exampleFormControlInput1">Endereço de email
                         </label>
-                        <input type="email" name="Email" value="{{ dados_cliente.Email.value|default_if_none:''}}" class="form-control" id="exampleFormControlInput1" placeholder="nome@exemplo.com">
+                        <input type="email" name="Email" value="{{ dados_cliente.Email.value|default_if_none:''}}" class="form-control-contato" id="exampleFormControlInput1" placeholder="nome@exemplo.com">
                     </div>
                     <div class="form-group">
                         <label for="exampleFormControlInput1">Contato
                         </label>
-                        <input type="tel" name="Número" value="{{ dados_cliente.Número.value|default_if_none:''}}" class="form-control" id="exampleFormControlInput1" placeholder="(51) _____-____">
+                        <input type="tel" name="Número" value="{{ dados_cliente.Número.value|default_if_none:''}}" class="form-control-contato" id="exampleFormControlInput1" placeholder="(51) _____-____">
                     </div>
                     <div class="form-group">
                         <label for="exampleFormControlTextarea1">Mensagem</label>
-                        <textarea class="form-control"  id="exampleFormControlTextarea1" name="Mensagem" rows="3" placeholder="Deixe aqui a sua mensagem...">{{dados_cliente.Mensagem.value|default_if_none:''}} </textarea>
+                        <textarea class="form-control-contato"  id="exampleFormControlTextarea1" name="Mensagem" rows="3" placeholder="Deixe aqui a sua mensagem...">{{dados_cliente.Mensagem.value|default_if_none:''}} </textarea>
                     </div>
                     
                                         <!-- Modal grande -->
