@@ -8,23 +8,11 @@
 {% block content %}
 
     <main>
-        <section id="image-carousel" class="splide" aria-label="Beautiful Images">
-            <div class="splide__track">
-                <ul class="splide__list">
-                    <li class="splide__slide">
-                        <img src="{% static 'img/background-attachment.webp' %}" alt="">
-                    </li>
-                    <li class="splide__slide">
-                        <img src="{% static 'img/background-attachment.webp' %}" alt="">
-                    </li>
-                    <li class="splide__slide">
-                        <img src="{% static 'img/background-attachment.webp' %}" alt="">
-                    </li>
-                </ul>
-            </div>
+        <section id="inicio" class="inicio">
+            
         </section>
 
-        <section class="conheca">
+        <section id="produtos" class="produtos">
             <div class="section-title">
                 <h2>CONHEÇA NOSSO PRODUTOS!</h2>
             </div>
@@ -97,7 +85,7 @@
 
         <section class="destaques">
             <div class="section-title">
-                <h2>PRODUTOS EM DESTAQUE</h2>
+                <h2>Produtos em Destaque</h2>
             </div>
 
             <div class="container-destaques">
@@ -112,7 +100,7 @@
                                         <h5 class="card-title">Aromatizadores</h5>
                                         <p class="card-text">R$56,99</p>
                                         <p class="text-default">Selecione a sua essência!</p>
-                                        <a href="#" class="btn btn-primary btn-veja-mais">Adicione ao carrinho</a>
+                                        <a href="#" class="btn btn-primary btn-orange">Adicione ao carrinho</a>
                                     </div>
                                 </div>
                             </li>
@@ -124,7 +112,7 @@
                                         <h5 class="card-title">Velas</h5>
                                         <p class="card-text">R$56,99</p>
                                         <p class="text-default">Selecione a sua essência!</p>
-                                        <a href="#" class="btn btn-primary btn-veja-mais">Adicione ao carrinho</a>
+                                        <a href="#" class="btn btn-primary btn-orange">Adicione ao carrinho</a>
                                     </div>
                                 </div>
                             </li>
@@ -136,7 +124,7 @@
                                         <h5 class="card-title">Difusores</h5>
                                         <p class="card-text">R$56,99</p>
                                         <p class="text-default">Selecione a sua essência!</p>
-                                        <a href="#" class="btn btn-primary btn-veja-mais">Adicione ao carrinho</a>
+                                        <a href="#" class="btn btn-primary btn-orange">Adicione ao carrinho</a>
                                     </div>
                                 </div>
                             </li>
@@ -148,7 +136,7 @@
                                         <h5 class="card-title">Sabonetes</h5>
                                         <p class="card-text">R$56,99</p>
                                         <p class="text-default">Selecione a sua essência!</p>
-                                        <a href="#" class="btn btn-primary btn-veja-mais">Adicione ao carrinho</a>
+                                        <a href="#" class="btn btn-primary btn-orange">Adicione ao carrinho</a>
                                     </div>
                                 </div>
                             </li>
@@ -160,7 +148,7 @@
                                         <h5 class="card-title">Kits Personalizados</h5>
                                         <p class="card-text">R$56,99</p>
                                         <p class="text-default">Selecione a sua essência!</p>
-                                        <a href="#" class="btn btn-primary btn-veja-mais">Adicione ao carrinho</a>
+                                        <a href="#" class="btn btn-primary btn-orange">Adicione ao carrinho</a>
                                     </div>
                                 </div>
                             </li>
@@ -171,64 +159,212 @@
             </div>
 
         </section>
+
+        <section class="colecoes">
+            <div class="section-title">
+                <h2>Coleções Especiais</h2>
+            </div>
+
+            <div class="container-colecoes">
+                <section class="splide splide-cards">
+                    <div class="splide__track track-card">
+                        <ul class="splide__list list-cards">
+
+                            <li class="splide__slide slide-card">
+                                <div class="card" >
+                                    <div class="card-img"><img src="{% static 'img/brisa.jpg' %}" class="card-img-top" alt="aromatizadores"></div>
+                                    <div class="card-body">
+                                        <h5 class="card-title">Coleção Brisa do Mar</h5>
+                                        <p class="card-text"></p>
+                                        <a href="#" class="btn btn-primary btn-veja-mais">Veja Mais</a>
+                                </div>
+                            </li>
+
+                            <li class="splide__slide slide-card">
+                                <div class="card" >
+                                    <div class="card-img"><img src="{% static 'img/tenue_gold.jpg' %}" class="card-img-top" alt="velas"></div>
+                                    <div class="card-body">
+                                        <h5 class="card-title">Coleção Tenuê Gold</h5>
+                                        <p class="card-text"></p>
+                                        <a href="#" class="btn btn-primary btn-veja-mais">Veja Mais</a>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </section>
+            </div>
+
+        </section>
+
+        <section id="sobre" class="sobre">
+            <div class="section-title">
+                <h1>
+                    Quem Somos
+                    <hr>
+                </h1>
+            </div>
+            <div class="sobre-container">
+                <div class="text-container">
+                    <h3 class="sub-title-sobre">
+                        Bem-vindos à nossa encantadora loja de velas veganas e artesanais.
+                    </h3>
+                    <p class="text-sobre">
+                        Do latim Balsamun, surgiu a BALM, criada por mãe e filha, em Sapiranga, RS e agora para todo o país. <br>
+                        Com o objetivo de iluminar, esclarecer, ilustrar e ensinar. <br>
+                        Através de velas aromáticas  que contém o aroma mais potente e singular do mercado. <br>
+                        Aqui, mergulhe em um mundo de fragrâncias naturais e beleza consciente. <br>
+                        Cada vela é cuidadosamente criada para proporcionar não apenas um aroma maravilhoso, mas também uma experiência única. <br>
+                        Nossos produtos são feitos com ingredientes éticos e sustentáveis, sem comprometer a qualidade ou a criatividade. <br>
+                    </p>
+                    <h3 class="sub-title-sobre">
+                        Faça do seu lar completo com BALM!
+                    </h3>
+                </div>
+                <div class="img-sobre">
+                    <div class="foto">
+                
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="vantagens-container">
+            <div class="vantagens">
+                <div class="section-title">
+                    <h2>Por que  escolher BALM?</h2>
+                </div>
+                <div class="vantagens-cards">
+                    <div class="flex flex-col items-center text-center">
+                        <div class="w-16 h-16 rounded-full bg-orange bg-opacity-20 flex items-center justify-center mb-4">
+                            <div class="icon-circle">
+                                <i class="bi bi-brush"></i>
+                            </div>
+                        </div>
+                        <h3 class="text-xl font-medium mb-2">100% Artesanal</h3>
+                        <p class="text-cream text-opacity-80">Cada produto é feito à mão com dedicação e atenção aos detalhes, garantindo qualidade e exclusividade.</p>
+                    </div>
+                    <div class="flex flex-col items-center text-center">
+                        <div class="w-16 h-16 rounded-full bg-orange bg-opacity-20 flex items-center justify-center mb-4">
+                            <div class="icon-circle">
+                                <i class="bi bi-tree"></i>
+                            </div>
+                        </div>
+                        <h3 class="text-xl font-medium mb-2">Ingredientes Naturais</h3>
+                        <p class="text-cream text-opacity-80">Utilizamos apenas ingredientes naturais e de alta qualidade, selecionados com cuidado para cada produto.</p>
+                    </div>
+                    <div class="flex flex-col items-center text-center">
+                        <div class="w-16 h-16 rounded-full bg-orange bg-opacity-20 flex items-center justify-center mb-4">
+                            <div class="icon-circle">
+                                <i class="bi bi-heart"></i>
+                            </div>
+                        </div>
+                        <h3 class="text-xl font-medium mb-2">Feito com Amor</h3>
+                        <p class="text-cream text-opacity-80">Colocamos amor e dedicação em cada etapa do processo, desde a criação até a embalagem final.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="personalizar" class="personalizar">
+            <div class="section-title">
+                <h2>Personalize Cada Detalhe</h2>
+            </div>
+            <div class="text-personalizar">
+                <p>Seja para um evento especial, presente inesquecível ou para criar uma atmosfera acolhedora no seu espaço, nossos produtos artesanais são totalmente personalizáveis — do design à fragrância.</p>
+                <p>Atendemos desde lembranças de festas até projetos corporativos, decoração de estabelecimentos, hotéis, spas e centros de bem-estar. Cada vela é feita à mão com materiais de alta qualidade, traduzindo a sua essência em luz, aroma e estilo.</p>
+                <p>Quer uma ideia pronta ou só precisa de ajuda para começar? Nossa equipe está pronta para transformar sua visão em realidade.</p>
+                <p>🌿 Ilumine momentos com um toque único.</p>
+                <p>📲 Fale conosco no <a href="https://wa.me/555199326402">WhatsApp</a> e crie a vela perfeita para sua ocasião.</p>
+            </div>
+        </section>
+
+        <section id="contato" class="section-contato">
+            <div class="contato">
+                <h5>Entre em contato</h5>
+                <h3>Estamos aqui para ajudar!</h3>
+                <p class="text-default">Tem alguma dúvida sobre nossos produtos ou deseja fazer um pedido personalizado? Entre em contato conosco e teremos prazer em atendê-lo.</p>
+                <ul class="list-contato-container">
+                    <li class="list-contato">
+                        <a href="https://wa.me/555199326402" target="_blank"><i class="bi bi-whatsapp"></i>5551999326402</a>
+                    </li>
+                    <li class="list-contato">
+                        <a href="tel:5551999326402"><i class="bi bi-telephone"></i>(51) 99932-6402</a>
+                    </li>
+                    <li class="list-contato">
+                        <a href="mailto:comunicacaobalm.com.br@gmail.com"><i class="bi bi-envelope"></i>comunicacaobalm.com.br@gmail.com</a>
+                    </li>
+                    <li class="list-contato">
+                        <a href="https://www.google.com/maps/@-29.6433539,-51.007024,3a,75y,189.93h,90t/data=!3m7!1e1!3m5!1sTQHv7HC7UwAH7V8C82OShA!2e0!6shttps:%2F%2Fstreetviewpixels-pa.googleapis.com%2Fv1%2Fthumbnail%3Fcb_client%3Dmaps_sv.tactile%26w%3D900%26h%3D600%26pitch%3D0%26panoid%3DTQHv7HC7UwAH7V8C82OShA%26yaw%3D189.93!7i16384!8i8192?entry=ttu&g_ep=EgoyMDI1MDEyMi4wIKXMDSoASAFQAw%3D%3D" target="_blank"><i class="bi bi-geo-alt"></i>Rua Chuí 39, Centro, Sapiranga</a>
+                    </li>
+                </ul>
+            </div>
+            
+            <div class="form-cli">
+                <form id="meuForm"  onsubmit="event.preventDefault(); enviarFormulario();" method="post" enctype="application/x-www-form-urlencoded" class="form-contato">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <label for="exampleFormControlInput1">Nome
+                        </label>
+                        
+                        <input value="{{dados_cliente.Nome.value|default_if_none:''}}" name="Nome" type="text" class="form-control-contato" id="exampleFormControlInput1" placeholder="Nome Completo">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleFormControlInput1">Endereço de email
+                        </label>
+                        <input type="email" name="Email" value="{{ dados_cliente.Email.value|default_if_none:''}}" class="form-control-contato" id="exampleFormControlInput1" placeholder="nome@exemplo.com">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleFormControlInput1">Contato
+                        </label>
+                        <input type="tel" name="Número" value="{{ dados_cliente.Número.value|default_if_none:''}}" class="form-control-contato" id="exampleFormControlInput1" placeholder="(51) _____-____">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleFormControlTextarea1">Mensagem</label>
+                        <textarea class="form-control-contato"  id="exampleFormControlTextarea1" name="Mensagem" rows="3" placeholder="Deixe aqui a sua mensagem...">{{dados_cliente.Mensagem.value|default_if_none:''}} </textarea>
+                    </div>
+                    
+                                        <!-- Modal grande -->
+                    <button type="submit" class="btn btn-primary-enviar" data-toggle="modal" data-target=".bd-example-modal-lg">Enviar</button>
+
+                    <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-lg">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">Mensagem enviada</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <p class="modal-text">Entraremos em contato em breve.</p>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+
+            <script>
+                
+            </script>
+        </section>
     </main>
 
     <script>
         document.addEventListener('DOMContentLoaded', function () {
-            new Splide('#image-carousel', {
-                type: 'fade',
-                rewind: true,
-            }).mount();
-    
-                document.querySelectorAll('.splide').forEach(function (el) {
-                    if (el.id !== 'image-carousel') {
-                        new Splide(el, {
-                            type: 'slide',
-                            perPage:3,
-                            perMove: 1,
-                            breakpoints: {
-                                768: { perPage: 1 },
-                                1024: { perPage: 2 },
-                            },
-                        }).mount();
-                }
-            });
-
-            var main = new Splide( '#main-slider', {
-                type       : 'fade',
-                heightRatio: 0.5,
-                pagination : false,
-                arrows     : false,
-                cover      : true,
-                } );
-
-                var thumbnails = new Splide( '#thumbnail-slider', {
-                rewind          : true,
-                fixedWidth      : 104,
-                fixedHeight     : 58,
-                isNavigation    : true,
-                gap             : 10,
-                focus           : 'center',
-                pagination      : false,
-                cover           : true,
-                dragMinThreshold: {
-                    mouse: 4,
-                    touch: 10,
-                },
-                breakpoints : {
-                    640: {
-                    fixedWidth  : 66,
-                    fixedHeight : 38,
+            
+            document.querySelectorAll('.splide').forEach(function (el) {
+                new Splide(el, {
+                    type: 'slide',
+                    perPage:3,
+                    perMove: 1,
+                    breakpoints: {
+                        768: { perPage: 1 },
+                        1024: { perPage: 2 },
                     },
-                },
-                } );
-
-                main.sync( thumbnails );
-                main.mount();
-                thumbnails.mount();
+                }).mount();
+            });
+    
         });
-
-
     </script>
     
 {% endblock %}

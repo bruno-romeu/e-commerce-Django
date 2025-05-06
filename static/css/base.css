@@ -14,6 +14,7 @@ header{
 .navbar-header{
     background-color: #021F59 !important;
     height: 100px !important;
+    box-shadow: 0 2px 20px #00000064;
 }
 
 .container-fluid .navbar-brand img{
